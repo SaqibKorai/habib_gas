@@ -414,7 +414,7 @@ function App() {
           {/* Contact Info */}
           <div>
             <h3 className="text-xl font-semibold text-orange-400 mb-6">Contact</h3> {/* Increased margin */}
-            <p className="text-gray-400 mb-2 text-base">32-Polt No. RS-1, Street 8/1, Sector 32-E, Nasir Colony, Street No. 1, Korangi, Karachi, 74900</p>
+            <p className="text-gray-400 mb-2 text-base">Polt No. RS-1, Street 8/1, Sector 32-E, Nasir Colony, Street No. 1, Korangi, Karachi, 74900</p>
             <p className="mb-2 text-lg"><strong>Phone:</strong> <a href="tel:+923042664764" className="text-orange-400 hover:underline">+92 304 2664764</a></p>
             <p className="text-lg"><strong>Email:</strong> <a href="mailto:habibgases@gmail.com" className="text-orange-400 hover:underline">habibgases@gmail.com</a></p>
             </div>
