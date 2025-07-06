@@ -380,7 +380,7 @@ function App() {
             </form>
             <div className="mt-16 text-center text-gray-700">
               <p className="text-xl font-semibold mb-4">Or find us here:</p>
-              <p className="mb-2 text-lg"><strong>Address:</strong> 32-E, Polt No. RS-1, Street 8/1, Sector 32-E, Nasir Colony, Street No. 1, Korangi, Karachi, 74900</p>
+              <p className="mb-2 text-lg"><strong>Address:</strong>Polt No. RS-1, Street 8/1, Sector 32-E, Nasir Colony, Street No. 1, Korangi, Karachi, 74900</p>
               <p className="mb-2 text-lg"><strong>Phone:</strong> <a href="tel:+923042664764" className="text-orange-600 hover:underline">+92 304 2664764</a></p>
               <p className="text-lg"><strong>Email:</strong> <a href="mailto:habibgases@gmail.com" className="text-orange-600 hover:underline">habibgases@gmail.com</a></p>
             </div>
