@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <link rel="icon" href="image_aebb08.jpg" /> <!-- Path to your logo in the public folder -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="theme-color" content="#000000" />
+    <meta
+      name="description"
+      content="Habib Gas Company: Your trusted partner in energy solutions, delivering safe, reliable, and efficient gas supply since 1985."
+    />
+    <link rel="apple-touch-icon" href="image_aebb08.jpg" />
+    <link rel="manifest" href="%PUBLIC_URL%/manifest.json" />
+    <title>Habib Gas Company</title>
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+      /* Custom font import for Inter */
+      @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap');
+      body {
+        font-family: 'Inter', sans-serif;
+        /* Custom scrollbar styles */
+        overflow-x: hidden; /* Prevent horizontal scroll on mobile */
+      }
+      ::-webkit-scrollbar {
+        width: 10px;
+        height: 10px;
+      }
+      ::-webkit-scrollbar-thumb {
+        background: rgb(107, 114, 128); /* Tailwind gray-500 */
+        border-radius: 5px;
+      }
+      ::-webkit-scrollbar-track {
+        background: rgba(0, 0, 0, 0.05); /* Lighter track */
+      }
+      /* Custom animations */
+      @keyframes fadeInDown {
+        from { opacity: 0; transform: translateY(-20px); }
+        to { opacity: 1; transform: translateY(0); }
+      }
+      @keyframes fadeInUp {
+        from { opacity: 0; transform: translateY(20px); }
+        to { opacity: 1; transform: translateY(0); }
+      }
+      @keyframes slideInLeft {
+        from { opacity: 0; transform: translateX(-50px); }
+        to { opacity: 1; transform: translateX(0); }
+      }
+      @keyframes slideInRight {
+        from { opacity: 0; transform: translateX(50px); }
+        to { opacity: 1; transform: translateX(0); }
+      }
+      .animate-fade-in-down { animation: fadeInDown 0.8s ease-out forwards; }
+      .animate-fade-in-up { animation: fadeInUp 0.8s ease-out forwards; }
+      .animate-slide-in-left { animation: slideInLeft 0.8s ease-out forwards; }
+      .animate-slide-in-right { animation: slideInRight 0.8s ease-out forwards; }
+
+      /* Custom text shadow for hero heading */
+      .text-hero-shadow {
+        text-shadow: 0 4px 8px rgba(0, 0, 0, 0.4), 0 0 15px rgba(249, 115, 22, 0.3); /* Deeper shadow with orange glow */
+      }
+    </style>
+</head>
+<body class="antialiased">
+    <noscript>You need to enable JavaScript to run this app.</noscript>
+    <div id="root"></div>
+</body>
+</html>
