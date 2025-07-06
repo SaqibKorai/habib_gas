@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useRef } from 'react'; // Import useRef
 // Lucide-react for icons
 import {
   Menu, X, Home, Info, Briefcase, Mail, ChevronUp,
@@ -12,6 +12,7 @@ import {
 function App() {
   const [isNavOpen, setIsNavOpen] = useState(false);
   const [showScrollToTop, setShowScrollToTop] = useState(false);
+  const videoRef = useRef(null); // Create a ref for the video element
 
   // Contact form state (still useful for controlled inputs)
   const [contactName, setContactName] = useState('');
@@ -37,6 +38,18 @@ function App() {
     window.addEventListener('scroll', handleScroll);
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
+
+  // Attempt to play video programmatically on component mount
+  useEffect(() => {
+    if (videoRef.current) {
+      // Attempt to play the video. Browsers might still block this without user interaction.
+      videoRef.current.play().catch(error => {
+        // Log the error if autoplay is prevented (common on mobile)
+        console.warn('Video autoplay prevented:', error);
+        // You could add logic here to show a "Play" button to the user
+      });
+    }
+  }, []); // Empty dependency array means this runs once on mount
 
   // Scroll to top function
   const scrollToTop = () => {
@@ -153,20 +166,28 @@ function App() {
 
       {/* Hero Section */}
       <section id="home" className="relative h-screen flex items-center justify-center text-center text-white overflow-hidden bg-gradient-to-br from-gray-900 to-gray-700">
-        {/* Background Video - Corrected webkit-playsinline attribute for React */}
+        {/* Background Video */}
         <video
+          ref={videoRef} // Assign the ref to the video element
           autoPlay
           loop
           muted
-          playsInline
-          webkit-playsinline /* React requires lowercase for custom attributes */
+          playsInline /* Standard HTML5 attribute for inline playback */
           preload="auto" /* Encourages browser to load enough to play */
           className="absolute inset-0 w-full h-full object-cover z-0 opacity-40"
           poster="https://placehold.co/1920x1080/333333/ffffff?text=Habib+Gas+Hero" // Make sure this is a good, relevant image
           aria-label="Background video of industrial facility" // Added for accessibility
         >
+          {/*
+            Mobile browsers, especially iOS Safari, often block video autoplay
+            without a direct user interaction, even with 'muted' and 'playsInline'.
+            The 'preload="auto"' attribute encourages the browser to load the video,
+            but autoplay is ultimately up to the browser's policy.
+            If the video doesn't play, the 'poster' image will be displayed.
+          */}
           <source src="videos/vecteezy_engineer-worker-of-an-oil-refinery-against-the-background-of_59018795.mp4" type="video/mp4" />
-          {/* You can add more source tags for different formats for wider browser compatibility (e.g., type="video/webm") */}
+          {/* Consider adding a .webm source for wider browser compatibility if you host your own video */}
+          {/* <source src="videos/your_video.webm" type="video/webm" /> */}
           Your browser does not support the video tag.
         </video>
         <div className="absolute inset-0 bg-black opacity-60 z-10"></div> {/* Increased overlay opacity */}
@@ -380,7 +401,7 @@ function App() {
             </form>
             <div className="mt-16 text-center text-gray-700">
               <p className="text-xl font-semibold mb-4">Or find us here:</p>
-              <p className="mb-2 text-lg"><strong>Address:</strong>Polt No. RS-1, Street 8/1, Sector 32-E, Nasir Colony, Street No. 1, Korangi, Karachi, 74900</p>
+              <p className="mb-2 text-lg"><strong>Address:</strong> 32-E, Polt No. RS-1, Street 8/1, Sector 32-E, Nasir Colony, Street No. 1, Korangi, Karachi, 74900</p>
               <p className="mb-2 text-lg"><strong>Phone:</strong> <a href="tel:+923042664764" className="text-orange-600 hover:underline">+92 304 2664764</a></p>
               <p className="text-lg"><strong>Email:</strong> <a href="mailto:habibgases@gmail.com" className="text-orange-600 hover:underline">habibgases@gmail.com</a></p>
             </div>
@@ -414,7 +435,7 @@ function App() {
           {/* Contact Info */}
           <div>
             <h3 className="text-xl font-semibold text-orange-400 mb-6">Contact</h3> {/* Increased margin */}
-            <p className="text-gray-400 mb-2 text-base">Polt No. RS-1, Street 8/1, Sector 32-E, Nasir Colony, Street No. 1, Korangi, Karachi, 74900</p>
+            <p className="text-gray-400 mb-2 text-base">32-E, Polt No. RS-1, Street 8/1, Sector 32-E, Nasir Colony, Street No. 1, Korangi, Karachi, 74900</p>
             <p className="mb-2 text-lg"><strong>Phone:</strong> <a href="tel:+923042664764" className="text-orange-400 hover:underline">+92 304 2664764</a></p>
             <p className="text-lg"><strong>Email:</strong> <a href="mailto:habibgases@gmail.com" className="text-orange-400 hover:underline">habibgases@gmail.com</a></p>
             </div>
