@@ -193,7 +193,7 @@ function App() {
           <div className="flex flex-col md:flex-row items-center justify-center md:space-x-20"> {/* Increased spacing */}
             <div className="md:w-1/2 mb-12 md:mb-0">
               <img
-                src="https://placehold.co/600x400/F97316/ffffff?text=About+Us+Image"
+                src="image_aebb08.jpg"
                 alt="Habib Gas Company History"
                 className="rounded-xl shadow-2xl w-full h-auto object-cover transform hover:scale-102 transition duration-500"
                 onError={(e) => { e.target.onerror = null; e.target.src = "https://placehold.co/600x400/F97316/ffffff?text=Image+Not+Found"; }}
