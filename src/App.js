@@ -175,7 +175,7 @@ function App() {
           playsInline /* Standard HTML5 attribute for inline playback */
           preload="auto" /* Encourages browser to load enough to play */
           className="absolute inset-0 w-full h-full object-cover z-0 opacity-40"
-          poster="https://placehold.co/1920x1080/333333/ffffff?" // Make sure this is a good, relevant image
+          poster="https://placehold.co/1920x1080/333333/ffffff?text=Habib+Gas+Hero" // Make sure this is a good, relevant image
           aria-label="Background video of industrial facility" // Added for accessibility
         >
           {/*
