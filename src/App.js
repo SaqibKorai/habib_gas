@@ -153,17 +153,20 @@ function App() {
 
       {/* Hero Section */}
       <section id="home" className="relative h-screen flex items-center justify-center text-center text-white overflow-hidden bg-gradient-to-br from-gray-900 to-gray-700">
-        {/* Background Video */}
+        {/* Background Video - Corrected webkit-playsinline attribute for React */}
         <video
           autoPlay
           loop
           muted
           playsInline
-          className="absolute inset-0 w-full h-full object-cover z-0 opacity-40" // Slightly reduced opacity for better text contrast
-          poster="https://placehold.co/1920x1080/333333/ffffff?text=Habib+Gas+Hero"
+          webkit-playsinline /* React requires lowercase for custom attributes */
+          preload="auto" /* Encourages browser to load enough to play */
+          className="absolute inset-0 w-full h-full object-cover z-0 opacity-40"
+          poster="https://placehold.co/1920x1080/333333/ffffff?text=Habib+Gas+Hero" // Make sure this is a good, relevant image
+          aria-label="Background video of industrial facility" // Added for accessibility
         >
-          {/* Ensure your video is in the public folder. If in public/videos/, change src to "videos/your_video.mp4" */}
           <source src="videos/vecteezy_engineer-worker-of-an-oil-refinery-against-the-background-of_59018795.mp4" type="video/mp4" />
+          {/* You can add more source tags for different formats for wider browser compatibility (e.g., type="video/webm") */}
           Your browser does not support the video tag.
         </video>
         <div className="absolute inset-0 bg-black opacity-60 z-10"></div> {/* Increased overlay opacity */}
@@ -193,7 +196,7 @@ function App() {
           <div className="flex flex-col md:flex-row items-center justify-center md:space-x-20"> {/* Increased spacing */}
             <div className="md:w-1/2 mb-12 md:mb-0">
               <img
-                src="image_aebb08.jpg"
+                src="https://images.unsplash.com/photo-1544717305-27a9228965a3?q=80&w=2940&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" // NEW IMAGE URL
                 alt="Habib Gas Company History"
                 className="rounded-xl shadow-2xl w-full h-auto object-cover transform hover:scale-102 transition duration-500"
                 onError={(e) => { e.target.onerror = null; e.target.src = "https://placehold.co/600x400/F97316/ffffff?text=Image+Not+Found"; }}
@@ -377,7 +380,7 @@ function App() {
             </form>
             <div className="mt-16 text-center text-gray-700">
               <p className="text-xl font-semibold mb-4">Or find us here:</p>
-              <p className="mb-2 text-lg"><strong>Address:</strong> Polt No. RS-1, Street 8/1, Sector 32-E, Nasir Colony, Street No. 1, Korangi, Karachi, 74900</p>
+              <p className="mb-2 text-lg"><strong>Address:</strong> 32-E, Polt No. RS-1, Street 8/1, Sector 32-E, Nasir Colony, Street No. 1, Korangi, Karachi, 74900</p>
               <p className="mb-2 text-lg"><strong>Phone:</strong> <a href="tel:+923042664764" className="text-orange-600 hover:underline">+92 304 2664764</a></p>
               <p className="text-lg"><strong>Email:</strong> <a href="mailto:habibgases@gmail.com" className="text-orange-600 hover:underline">habibgases@gmail.com</a></p>
             </div>
@@ -411,10 +414,10 @@ function App() {
           {/* Contact Info */}
           <div>
             <h3 className="text-xl font-semibold text-orange-400 mb-6">Contact</h3> {/* Increased margin */}
-            <p className="text-gray-400 mb-2 text-base">32-E, Polt No. RS-1, Street 8/1, Sector 32-E, Nasir Colony, Street No. 1, Korangi, Karachi, 74900</p>
+            <p className="text-gray-400 mb-2 text-base">32-Polt No. RS-1, Street 8/1, Sector 32-E, Nasir Colony, Street No. 1, Korangi, Karachi, 74900</p>
             <p className="mb-2 text-lg"><strong>Phone:</strong> <a href="tel:+923042664764" className="text-orange-400 hover:underline">+92 304 2664764</a></p>
-            <p className="text-base"><strong>Email:</strong> <a href="mailto:habibgases@gmail.com" className="text-orange-400 hover:underline">habibgases@gmail.com</a></p>
-          </div>
+            <p className="text-lg"><strong>Email:</strong> <a href="mailto:habibgases@gmail.com" className="text-orange-400 hover:underline">habibgases@gmail.com</a></p>
+            </div>
         </div>
         <div className="border-t border-gray-700 mt-12 pt-8 text-center text-gray-500 text-sm"> {/* Increased margin */}
           <p>&copy; {new Date().getFullYear()} Habib Gas Company. All rights reserved.</p>
